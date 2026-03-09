@@ -1,18 +1,44 @@
-## Getting Started
+# Duck Simulator — Design Patterns Project
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A Java-based duck simulator demonstrating five classic design patterns.
 
-## Folder Structure
+## Design Patterns Used
 
-The workspace contains two folders by default, where:
+| Pattern | Class(es) | Purpose |
+|---|---|---|
+| **Adapter** | `GooseAdapter` | Adapts a `Goose` to the `Quackable` interface |
+| **Decorator** | `QuackCounter` | Wraps ducks to count total quacks |
+| **Abstract Factory** | `AbstractDuckFactory`, `DuckFactory`, `CountingDuckFactory` | Encapsulates duck creation; counting factory auto-wraps with decorator |
+| **Composite** | `Flock` | Treats a collection of ducks the same as an individual duck (uses Iterator) |
+| **Observer** | `Observable`, `Quackologist`, `Observer`, `QuackObservable` | Tracks individual duck quacking in real time |
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Project Structure
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```
+src/ducksim/
+├── Quackable.java            # Core interface for all ducks
+├── MallardDuck.java          # Concrete duck
+├── RedheadDuck.java          # Concrete duck
+├── RubberDuck.java           # Concrete duck
+├── DuckCall.java             # Concrete duck
+├── Goose.java                # Adaptee
+├── GooseAdapter.java         # Adapter
+├── QuackCounter.java         # Decorator
+├── AbstractDuckFactory.java  # Abstract Factory
+├── DuckFactory.java          # Concrete Factory
+├── CountingDuckFactory.java  # Counting Factory
+├── Flock.java                # Composite
+├── QuackObservable.java      # Observable interface
+├── Observable.java           # Observer helper
+├── Observer.java             # Observer interface
+├── Quackologist.java         # Concrete Observer
+└── DuckSimulator.java        # Main simulator
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## How to Run
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```bash
+cd src
+javac ducksim/*.java
+java ducksim.DuckSimulator
+```
