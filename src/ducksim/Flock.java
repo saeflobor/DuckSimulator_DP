@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Flock implements Quackable {
+public class Flock implements Quackable, Iterable<Quackable> {
     private final List<Quackable> quackers = new ArrayList<>();
 
     public void add(Quackable quacker) {
@@ -31,6 +31,11 @@ public class Flock implements Quackable {
 
     @Override
     public void notifyObservers() {
+    }
+
+    @Override
+    public Iterator<Quackable> iterator() {
+        return quackers.iterator();
     }
 
     @Override
